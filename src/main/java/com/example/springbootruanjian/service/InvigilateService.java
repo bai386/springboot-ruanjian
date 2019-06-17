@@ -26,7 +26,9 @@ public class InvigilateService {
     public int counttInvigilate(int tid){
         return invigilateRepository.findcount(tid);
     }
-    //添加监考信息
+    //获取指定考试的监考人数
+    public int countExam(int eid) { return invigilateRepository.findExamcount(eid);}
+    //添加修改监考信息
     public Invigilate addInvigilate(Invigilate i){
         Invigilate invigilate=invigilateRepository.save(i);
         invigilateRepository.flush();
@@ -35,5 +37,11 @@ public class InvigilateService {
     }
     //删除
     public void deleteInvigilate(int id){invigilateRepository.deleteById(id);}
+    //根据id找监考信息
+    public Invigilate findById(int id){
+        return invigilateRepository.findById(id).get();
+    }
+    //所有
+    public List<Invigilate> findall(){ return invigilateRepository.findAll();}
 }
 

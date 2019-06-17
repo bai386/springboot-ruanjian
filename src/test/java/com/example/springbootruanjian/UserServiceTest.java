@@ -32,15 +32,19 @@ public class UserServiceTest {
         User u2=userService.addUser(u);
     }
     @Test
-    public void addAdminerTest(){
-        userService.addAdminer(3);
-    }
-    @Test
     public void updateUserTest(){
         User u = new User();
-        u.setId(3);
+        u = userService.findById(2);
         u.setIntroduction("普通用户");
         User u2=userService.addUser(u);
+    }
+    @Test
+    public void addAdminerTest(){
+        userService.addAdminer(2);
+    }
+    @Test
+    public void deleteAdminerTest(){
+        userService.deleteAdminer(2);
     }
     @Test
     public void deleteUserTest(){

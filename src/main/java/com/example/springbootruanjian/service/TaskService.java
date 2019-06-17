@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional
 public class TaskService {
@@ -20,6 +22,14 @@ public class TaskService {
         taskRepository.refresh(task);
         return task;
     }
-
+    //删除
     public void deleteTask(int id){taskRepository.deleteById(id);}
+
+    public Task findById(int id){
+        return taskRepository.findById(id).get();
+    }
+    //获取所有任务
+    public List<Task> findall(){
+        return taskRepository.findAll();
+    }
 }

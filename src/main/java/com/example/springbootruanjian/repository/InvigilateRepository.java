@@ -18,6 +18,9 @@ public interface InvigilateRepository extends CustomizedRepository<Invigilate,In
     @Query("select count(i) from Invigilate i where i.teacher.id=:tid")
     int findcount(@Param("tid") int tid);
 
+    @Query("select count(i) from Invigilate i where i.exam.id = :eid")
+    int findExamcount(@Param("eid") int eid);
+
     @Query("select i from Invigilate i where i.exam.id=:eid and i.teacher.id=:tid")
     Invigilate find(@Param("eid") int eid,@Param("tid") int tid);
 

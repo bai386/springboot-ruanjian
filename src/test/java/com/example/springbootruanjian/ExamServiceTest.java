@@ -23,10 +23,11 @@ public class ExamServiceTest {
     @Test
     public void addExamTest(){
         Exam e = new Exam();
-        e.setCourseName("软件质量测试");
+        e.setCourseName("系统程序设计");
         e.setSite("丹青楼205");
-        e.setNeedPeople(2);
+        e.setNeedPeople(3);
         e.setStartTime(LocalDateTime.parse("2019-06-20T08:30:00"));
+        e.setFinishTime(LocalDateTime.parse("2019-06-20T10:30"));
         //e.setStartTime(2019-6-20 08:30:00);
 
         Exam e2 = examService.addExam(e);
@@ -35,7 +36,6 @@ public class ExamServiceTest {
     public void updateExamTest(){
         Exam e = null;
         e = examService.findById(1);
-
         e.setNeedPeople(2);
         Exam e2 = examService.addExam(e);
     }
